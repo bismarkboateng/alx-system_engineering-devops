@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+#bash script that dipslay a text 
 
 trap interrup SIGTERM
 
