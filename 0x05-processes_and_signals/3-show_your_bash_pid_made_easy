@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+pgrep bash | sed -e 's/$/ bash/'
