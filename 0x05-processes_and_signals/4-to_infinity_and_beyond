@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+#displays 'to infinity and beyond' indefinitely
 
 while true 
 
