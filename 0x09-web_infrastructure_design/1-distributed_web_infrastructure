@@ -1,0 +1,15 @@
+1. For every additional element, adding another server prevents SPOF.
+
+2. The distribution algorithm is called Round Robin.
+   This algorithm is the most commonly implemented. It works by using each server behind the load balancer in
+   turns, according to their weights. It's also probably the smoothest and most fair algorithm as the servers'
+   processing time stays equally distributed.
+
+3. My HAproxy load balancer is using Active-Active which means all the servers are working simultaneously, just like
+   Round-Robin, where 1st client go to the first server and the second goes to the second server making the servers
+   to balance in service to avoid traffic.
+   In Active-Active Load-Balancer, the server work simultaneously but in the Active-Passive one server works all the
+   time but if a failout occur then the other server take control of the current working activities.
+
+4. Master-slave replication enables data from one database server (the master) to be replicated to one or more other
+   database servers (the slaves)
