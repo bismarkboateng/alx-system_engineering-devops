@@ -1,0 +1,29 @@
+#!/usr/bin/env bash
+#installs nginx server
+#serve a page that returns Hello world string
+
+
+sudo apt-get update -y -qq
+#installs nginx
+sudo apt-get install nginx -y
+
+# starting nginx service
+sudo service nginx start
+
+# allow firewall
+sudo ufw allow 'Nginx HTTP'
+
+#give user ownership to website files
+sudo chown -R "$USER":"$USER" /var/www/html
+sudo chmod -R 755 /var/www
+
+# Backup default index
+cp /var/www/html/index.nginx-debian.html /var/www/html/index.nginx-debian.html.bckp
+
+# Creating new index
+echo -e "Hello World!" | dd status=none of=/var/www/html/index.nginx-debian.html
+
+# restarting nginx
+sudo service nginx restart
+
+echo "Done"
