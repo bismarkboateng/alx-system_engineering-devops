@@ -1,0 +1,33 @@
+#!/usr/bin/env bash
+#configures a new ubuntu machine
+sudo apt-get update -y -qq
+#installs nginx
+sudo apt-get install nginx -y
+
+# starting nginx service
+sudo service nginx start
+
+# allow firewall
+sudo ufw allow 'Nginx HTTP'
+
+#give user ownership to website files
+sudo chown -R "$USER":"$USER" /var/www/html
+sudo chmod -R 755 /var/www
+
+# Backup default index
+cp /var/www/html/index.nginx-debian.html /var/www/html/index.nginx-debian.html.bckp
+
+# Creating new index
+echo -e "Hello World!" > /var/www/html/index.nginx-debian.html
+
+#redirect to another page
+sudo sed -i '24\ rewrite ^/redirect_me https://youtu.be/67gYEK4FtzA permanent;' /etc/nginx/sites-available/default
+
+# Setting up a 404 page
+echo "Ceci n'est pas une page" >> /var/www/html/error_404.html
+sudo sed -i '25i\ error_page /error_404.html;' /etc/nginx/sites-available/default
+
+# restarting nginx
+sudo service nginx restart
+
+echo "Done"
