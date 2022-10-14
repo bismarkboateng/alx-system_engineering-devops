@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+#accepts arguments
+
+echo "$1"
