@@ -1,4 +1,9 @@
 #!/usr/bin/env bash
-#accepts arguments
+#accepts arguments, executes whoami command 
 
-echo "$1"
+if [[ $# -eq 1 ]]
+then
+    sudo -u "$1" whoami
+else
+    whoami
+fi
