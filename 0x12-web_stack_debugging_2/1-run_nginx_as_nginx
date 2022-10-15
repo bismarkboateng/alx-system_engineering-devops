@@ -1,10 +1,12 @@
 #!/usr/bin/env bash
 
-echo "user nginx" >> /etc/nginx/nginx.conf
+sudo echo "user nginx" >> /etc/nginx/nginx.conf
 
-echo "server {
+sudo echo "server {
         listen 0.0.0.0:8080;
  
-}" >> nginx.conf
+}" >> /etc/nginx/sites-available/default
+
+sudo systemctl restart nginx
 
 
