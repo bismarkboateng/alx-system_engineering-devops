@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+echo "user nginx" >> /etc/nginx/nginx.conf
+
+echo "server {
+        listen 0.0.0.0:8080;
+ 
+}" >> nginx.conf
+
+
